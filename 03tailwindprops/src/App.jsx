@@ -18,7 +18,7 @@ function App() {
 			<h1 className='bg-yellow-400 text-black p-4 rounded-xl mb-4'>
 				Tailwind and DevUI testing
 			</h1>
-			<Card channel='Chaiaurcode' someObj={myObj} someArr={newArr} />
+			<Card channel='Code with Milan' />
 			<Card />
 		</>
 	);
