@@ -27,7 +27,7 @@ function App() {
 				Add value
 			</button>
 			<button className='btn' onClick={removeValue}>
-				Remove value{' '}
+				Remove value
 			</button>
 		</>
 	);
