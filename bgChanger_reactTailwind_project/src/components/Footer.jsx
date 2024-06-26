@@ -1,38 +1,53 @@
 import { React, createElement, useState } from 'react';
 
-function Footer({ colorArr }) {
-	const [color, setColor] = useState('black');
-
-	function changeBgColor(color) {
-		document.querySelector('body').style.backgroundColor = { color };
-	}
-
-	function createButtons(colorArr) {
-		for (let i = 0; i < colorArr.length; i++) {
-			let color = colorArr[i];
-			const ele = {};
-
-			// const button = document.createElement('button');
-			// button.setAttribute('');
-
-			ele = createElement('button', {
-				className:
-					'mt-10 block w-full rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600',
-				onClick: { changeBgColor },
-				name: { color },
-				value: { color },
-			});
-		}
-		return ele;
-	}
+function Footer() {
+	const [color, setColor] = useState('white');
 
 	return (
 		<>
-			{createButtons}
-			<div class='flex space-x-4'>
-				<button class='px-6 h-12 uppercase font-semibold tracking-wider border-2 border-black bg-teal-400 text-black'>
-					Buy now
-				</button>
+			<div
+				className='w-full h-screen duration-200'
+				style={{ backgroundColor: color }}>
+				<div className='fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2'>
+					<div className='flex flex-wrap justify-center gap-3 shadow-xl bg-gray-200 px-3 py-2 rounded-2xl'>
+						<button
+							onClick={() => setColor('Red')}
+							className='ouline-none px-4 py-1 rounded-full text-white shadow-lg'
+							style={{ backgroundColor: 'Red' }}>
+							Red
+						</button>
+						<button
+							onClick={() => setColor('Green')}
+							className='ouline-none px-4 py-1 rounded-full text-white shadow-lg'
+							style={{ backgroundColor: 'Green' }}>
+							Green
+						</button>
+						<button
+							onClick={() => setColor('Blue')}
+							className='ouline-none px-4 py-1 rounded-full text-white shadow-lg'
+							style={{ backgroundColor: 'Blue' }}>
+							Red
+						</button>
+						<button
+							onClick={() => setColor('Olive')}
+							className='ouline-none px-4 py-1 rounded-full text-white shadow-lg'
+							style={{ backgroundColor: 'Olive' }}>
+							Blue
+						</button>
+						<button
+							onClick={() => setColor('Gray')}
+							className='ouline-none px-4 py-1 rounded-full text-white shadow-lg'
+							style={{ backgroundColor: 'Gray' }}>
+							Gray
+						</button>
+						<button
+							onClick={() => setColor('orange')}
+							className='ouline-none px-4 py-1 rounded-full text-white shadow-lg'
+							style={{ backgroundColor: 'orange' }}>
+							Yellow
+						</button>
+					</div>
+				</div>
 			</div>
 		</>
 	);

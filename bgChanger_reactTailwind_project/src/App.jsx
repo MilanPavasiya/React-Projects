@@ -5,11 +5,11 @@ import './App.css';
 import Footer from './components/Footer';
 
 function App() {
-	let colors = ['Red', 'Green', 'Blue', 'Olive', 'Gray', 'Yellow'];
+	let colors = ['Red', 'Green', 'Blue', 'Olive', 'Gray', 'Orange'];
 
 	return (
 		<>
-			<Footer colorArr={colors} />
+			<Footer />
 		</>
 	);
 }
