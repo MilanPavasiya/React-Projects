@@ -26,13 +26,13 @@ function Footer() {
 							onClick={() => setColor('Blue')}
 							className='ouline-none px-4 py-1 rounded-full text-white shadow-lg'
 							style={{ backgroundColor: 'Blue' }}>
-							Red
+							Blue
 						</button>
 						<button
 							onClick={() => setColor('Olive')}
 							className='ouline-none px-4 py-1 rounded-full text-white shadow-lg'
 							style={{ backgroundColor: 'Olive' }}>
-							Blue
+							Olive
 						</button>
 						<button
 							onClick={() => setColor('Gray')}
@@ -43,8 +43,8 @@ function Footer() {
 						<button
 							onClick={() => setColor('orange')}
 							className='ouline-none px-4 py-1 rounded-full text-white shadow-lg'
-							style={{ backgroundColor: 'orange' }}>
-							Yellow
+							style={{ backgroundColor: 'Orange' }}>
+							Orange
 						</button>
 					</div>
 				</div>
