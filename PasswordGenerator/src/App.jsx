@@ -14,7 +14,7 @@ function App() {
 		if (charAllowed) string += '!@#$%^&*()-+[]{}~`';
 
 		for (let i = 1; i < length; i++) {
-			password = string[Math.floor(Math.random() * string.length + 1)];
+			pass = string[Math.floor(Math.random() * string.length + 1)];
 		}
 
 		setPassword(password);
@@ -49,8 +49,26 @@ function App() {
 						/>
 						<label>Length: {length}</label>
 					</div>
-					<div className='flex items-center gap-x-1'></div>
-					<div className='flex items-center gap-x-1'></div>
+					<div className='flex items-center gap-x-1'>
+						<input
+							type='checkbox'
+							defaultChecked={numberAllowed}
+							id='numberInput'
+							onChange={() => setNumberAllowed((state) => !state)}
+						/>
+						<label htmlFor='numberInput'> Numbers</label>
+					</div>
+					<div className='flex items-center gap-x-1'>
+						<input
+							type='checkbox'
+							defaultChecked={charAllowed}
+							id='characterInput'
+							onChange={() => {
+								setCharAllowed((prev) => !prev);
+							}}
+						/>
+						<label htmlFor='characterInput'>Characters</label>
+					</div>
 				</div>
 			</div>
 		</>
