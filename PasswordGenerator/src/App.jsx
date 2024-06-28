@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import './App.css';
+import { useState, useCallback } from 'react';
 
 function App() {
 	const [length, setLength] = useState(8);
@@ -7,35 +6,51 @@ function App() {
 	const [charAllowed, setCharAllowed] = useState(false);
 	const [password, setPassword] = useState('');
 
-	const passwordGenerator = (length) => {
-		const alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		const password = alphabet[Math.floor(Math.random() * length)];
+	const passwordGenerator = useCallback(() => {
+		let pass = '';
+		let string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-		return password;
-	};
+		if (numberAllowed) string += '1234567890';
+		if (charAllowed) string += '!@#$%^&*()-+[]{}~`';
+
+		for (let i = 1; i < length; i++) {
+			password = string[Math.floor(Math.random() * string.length + 1)];
+		}
+
+		setPassword(password);
+	}, [length, numberAllowed, charAllowed, setPassword]);
 
 	return (
 		<>
-			<div className='flex flex-col justify-center '>
-				<h1 className='text-4xl text-center text-gray-400'>
-					Password Generator
-				</h1>
-				<div className='flex w-full justify-center space-x-1 md:w-1/3'>
-					<p
-						className='bg-white flex h-10 w-full rounded-md border border-white bg-transparent px-3 py-2 text-2xl placeholder:text-orange-500 focus:outline-none focus:ring-1 focus:ring-black/30 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50'
-						type='email'>
-						{passwordGenerator.call()}
-					</p>
-					<button
-						type='button'
-						className='rounded-md bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+			<div className='w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 text-orange-500 bg-gray-700'>
+				<h1 className='text-center text-white my-3'>Password Generator</h1>
+				<div className='flex shadow rounded-lg overflow-hidden mb-4'>
+					<input
+						type='text'
+						value={password}
+						className='outline-none w-full py-1 px-3'
+						placeholder='Password'
+						readOnly
+					/>
+					<button className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>
+						{' '}
 						Copy
 					</button>
 				</div>
-				<div>
-					{/* scroller */}
-					<p className='text-orange-400'>Length</p>
-					{/* counter */}
+				<div className='flex text-sm gap-x-2'>
+					<div className='flex items-center gap-x-1'>
+						<input
+							type='range'
+							min={6}
+							max={100}
+							value={length}
+							className='cursor-pointer'
+							onChange={(e) => setLength(e.target.value)}
+						/>
+						<label>Length: {length}</label>
+					</div>
+					<div className='flex items-center gap-x-1'></div>
+					<div className='flex items-center gap-x-1'></div>
 				</div>
 			</div>
 		</>
