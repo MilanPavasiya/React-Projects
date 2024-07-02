@@ -19,6 +19,9 @@ function InputBox({
 					className='outline-none w-full bg-transparent py-1.5'
 					type='number'
 					placeholder='Amount'
+					disabled={amountDisable}
+					value={amount}
+					onChange={(e) => onAmountChange}
 				/>
 			</div>
 			<div className='w-1/2 flex flex-wrap justify-end text-right'>
