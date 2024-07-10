@@ -1,12 +1,6 @@
 import React from 'react';
 
 function InputBox({}) {
-	let data = fetch(
-		'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@2024-03-06/v1/currencies/usd.json'
-	);
-
-	console.log(data.json());
-
 	return (
 		<div className={`bg-white p-3 rounded-lg text-sm flex className`}>
 			<div className='w-1/2'>
