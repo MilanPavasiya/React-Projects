@@ -14,7 +14,7 @@ function Github() {
 	return (
 		<div className='flex justify-center m-4 bg-gray-600 text-white p-4 text-3xl'>
 			<div>
-				GitHub Profile: {data.name}
+				GitHub API - Profile: {data.name}
 				<img
 					className='m-8'
 					src={data.avatar_url}
