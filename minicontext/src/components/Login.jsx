@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { UserContext } from '../context/UserContext';
+import UserContext from '../context/UserContext';
 
 function Login() {
 	const [username, setUsername] = useState('');
@@ -21,12 +21,14 @@ function Login() {
 				onChange={(e) => setUsername(e.target.value)}
 				placeholder='username'
 			/>
+			<br />
 			<input
 				type='text'
 				value={password}
 				onChange={(e) => setPassword(e.target.value)}
 				placeholder='password'
 			/>
+			<br />
 			<button onClick={handleSubmit}>Submit</button>
 		</div>
 	);
