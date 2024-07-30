@@ -4,15 +4,17 @@ import { useTodo } from '../contexts/TodoContext';
 function TodoForm() {
 	const [todo, setTodo] = useState([]);
 
-	const { addTodo } = useTodo;
+	const { addTodo } = useTodo();
 
 	const add = (e) => {
 		e.preventDefault();
 
-		if (!todo) return;
-
-		addTodo({ todo, completed: false });
-		setTodo('');
+		if (!todo || todo.length === 0) {
+			return;
+		} else {
+			addTodo({ todo, completed: false });
+			setTodo('');
+		}
 	};
 
 	return (
