@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addTodo, removeTodo } from '../features/todo/todoSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTodo } from '../features/todo/todoSlice';
 
 function AddTodo() {
 	const [input, setInput] = useState('');
@@ -8,7 +8,9 @@ function AddTodo() {
 
 	const addTodoHandler = (e) => {
 		e.preventDefault();
-		dispatch(addTodo(input));
+		if (input && input.length > 0) {
+			dispatch(addTodo(input));
+		}
 		setInput('');
 	};
 
